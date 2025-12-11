@@ -129,6 +129,7 @@
   },
   "snyk": true,
   "dependencies": {
+    "adm-zip": "^0.5.16",
     "async": "^3.2.4",
     "auth0": "3.5.0",
     "auth0-extension-express-tools": "2.1.0",
@@ -252,6 +253,7 @@
     "rimraf": "^2.5.2",
     "style-loader": "^0.23.1",
     "supertest": "^2.0.1",
+    "terser-webpack-plugin": "^5.3.15",
     "webpack": "^5.90.1"
   },
   "overrides": {

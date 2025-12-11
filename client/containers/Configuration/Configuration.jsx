@@ -100,56 +100,19 @@ export default connectContainer(class extends Component {
         <div className="row configuration-tabs">
           <div className="col-xs-12">
             <Tabs defaultActiveKey={this.state.activeTab} animation={false} id="configuration-tabs" >
-              <Tab eventKey={1} title={code.filter && code.filter.length ? <span>Filter Hook</span> : <i>Filter Hook</i>}>
+              <Tab eventKey={1} title={code.filter && code.filter.length ? <span>Access FGA Model</span> : <i>Access FGA Model</i>}>
                 <LoadingPanel show={scripts.filter && scripts.filter.loading} animationStyle={{ paddingTop: '5px', paddingBottom: '5px' }}>
                   <Error title={languageDictionary.errorTitle} message={getErrorMessage(languageDictionary, scripts.filter && scripts.filter.error)} />
                   <p>
-                    The <strong>filter hook</strong> allows you to specify which records are shown to the current
-                    users when loading the list of users or searching. For example: <i>Only show users from my department</i>.
-                    This has to be defined using the lucene syntax.
+                    The <strong>Access FGA Model</strong> allows you to specify the FGA Model used to allow authorization to user objects.
+                    There are 3 relationships supported (View, Access and Write). The user object types supported are User, Admin, Operator, Auditor 
                   </p>
                   <Editor
                     value={code.filter || ''}
                     onChange={this.onEditorChanged('filter')}
                   />
                   <div className="save-config">
-                    <button onClick={this.saveScript('filter')} className="btn btn-success">Save Filter Hook
-                    </button>
-                  </div>
-                </LoadingPanel>
-              </Tab>
-              <Tab eventKey={2} title={code.access && code.access.length ? <span>Access Hook</span> : <i>Access Hook</i>}>
-                <LoadingPanel show={scripts.access && scripts.access.loading} animationStyle={{ paddingTop: '5px', paddingBottom: '5px' }}>
-                  <Error title={languageDictionary.errorTitle} message={getErrorMessage(languageDictionary, scripts.access && scripts.access.error)} />
-                  <p>
-                    The <strong>access hook</strong> will allow you to specify if the current user is allowed to
-                    access a specific user (eg: view the details, delete the user, ...).
-                  </p>
-                  <Editor
-                    value={code.access || ''}
-                    onChange={this.onEditorChanged('access')}
-                  />
-                  <div className="save-config">
-                    <button onClick={this.saveScript('access')} className="btn btn-success">
-                      Save Access Hook
-                    </button>
-                  </div>
-                </LoadingPanel>
-              </Tab>
-              <Tab eventKey={3} title={code.create && code.create.length ? <span>Write Hook</span> : <i>Write Hook</i>}>
-                <LoadingPanel show={scripts.create && scripts.create.loading} animationStyle={{ paddingTop: '5px', paddingBottom: '5px' }}>
-                  <Error title={languageDictionary.errorTitle} message={getErrorMessage(languageDictionary, scripts.create && scripts.create.error)} />
-                  <p>
-                    The <strong>write hook</strong> will run every time a new user is created. This hook will allow
-                    you to shape the user object before it's sent to Auth0. The context object contains the request (with the current user) and the payload sent by the end user.
-                  </p>
-                  <Editor
-                    value={code.create || ''}
-                    onChange={this.onEditorChanged('create')}
-                  />
-                  <div className="save-config">
-                    <button onClick={this.saveScript('create')} className="btn btn-success">
-                      Save Write Hook
+                    <button onClick={this.saveScript('filter')} className="btn btn-success">Save Model
                     </button>
                   </div>
                 </LoadingPanel>
